@@ -2,31 +2,43 @@ datos <- read.table("data_embutidos.txt", header = TRUE, dec = ".")
 
 #--- Valores necesarios para gráficas ---#
 
-lim_s = 230
-lim_i = 210
+lim_s = 230 #Limite superior del peso
+lim_i = 210 #Limite inferrior del peso
 
 max = max(datos$peso)
 min = min(datos$peso)
 
 peso_media = median(datos$peso)
 
-
 #--- Gráficas ---#
 
 ##--- Pesos ---##
 
 ###--- General ---###
-x11() ; par(mfrow = c(1, 1))
+x11() ; #par(mfrow = c(1, 1))
 
 x11()
 boxplot(datos$peso,
         ylab = "Peso (gr)",
         ylim = c(min, max),
-        col  = "White")
+        col  = "White",
+        main = "Boxplot de pesos")
 
 abline(h = c(peso_media, lim_s, lim_i),
     lty = 3, 
-    col = "Red",)
+    col = "Red")
+
+x11()
+hist(datos$peso,
+     xlab = "Peso (gr)",
+     ylab = "Frecuencia",
+     col = "white",
+     main = "Histograma de pesos")
+
+abline(v = c(lim_s, lim_i),
+       lty = 3,
+       col = "Red")
+
 
 ###--- Maquina ---##
 
