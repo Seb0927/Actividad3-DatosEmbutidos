@@ -20,7 +20,7 @@ x11() ; #par(mfrow = c(1, 1))
 x11()
 boxplot(datos$peso,
         ylab = "Peso (gr)",
-        ylim = c(min, max),
+        ylim = c(min, max+5),
         col  = "White",
         main = "Boxplot de pesos")
 
@@ -32,6 +32,7 @@ x11()
 hist(datos$peso,
      xlab = "Peso (gr)",
      ylab = "Frecuencia",
+     xlim = c(min,max+5),
      col = "white",
      main = "Histograma de pesos")
 
@@ -60,7 +61,7 @@ abline(h = c(peso_media, lim_s, lim_i),
 
 x11()
 boxplot(datos$peso ~ datos$operario,
-        xlab  = "operario" 
+        xlab  = "operario", 
         ylab  = "Peso (gr)",
         names = c("A", "B"),
         main  = "Pesos por operario",
